@@ -2,6 +2,7 @@ package com.example.pokemontracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener resetListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            defaultColors();
             et_nationalNumber.setText(getString(R.string._896));
             et_name.setText(getString(R.string.glastrier));
             et_species.setText(getString(R.string.wild_horse_pokemon));
@@ -27,10 +29,17 @@ public class MainActivity extends AppCompatActivity {
     };
 
     View.OnClickListener saveListener = new View.OnClickListener() {
+        double labelHeight, labelWeight;
+        @SuppressLint({"SetTextI18n", "DefaultLocale"})
         @Override
         public void onClick(View view) {
             if (validateInputs()) {
                 Toast.makeText(getApplicationContext(), "Information stored in the database", Toast.LENGTH_LONG).show();
+                labelHeight = Double.parseDouble(et_height.getText().toString());
+                labelWeight = Double.parseDouble(et_weight.getText().toString());
+
+                et_height.setText(String.format("%.2f m",labelHeight));
+                et_weight.setText(String.format("%.2f kg",labelWeight));
             }
         }
     };
@@ -117,29 +126,20 @@ public class MainActivity extends AppCompatActivity {
     private boolean validateInputs() {
         boolean allValid = true;
 
-        nationalNumber.setTextColor(Color.parseColor("Black"));
-        name.setTextColor(Color.parseColor("Black"));
-        species.setTextColor(Color.parseColor("Black"));
-        gender.setTextColor(Color.parseColor("Black"));
-
-        hp.setTextColor(Color.parseColor("Black"));
-        attack.setTextColor(Color.parseColor("Black"));
-        defence.setTextColor(Color.parseColor("Black"));
-
-
-        if (et_nationalNumber.getText().toString().trim().isEmpty() ||
-                et_name.getText().toString().trim().isEmpty() ||
-                et_species.getText().toString().trim().isEmpty() ||
-                et_height.getText().toString().trim().isEmpty() ||
-                et_weight.getText().toString().trim().isEmpty() ||
-                et_hp.getText().toString().trim().isEmpty() ||
-                et_attack.getText().toString().trim().isEmpty() ||
-                et_defence.getText().toString().trim().isEmpty()) {
+        defaultColors();
+        if (et_nationalNumber.getText().toString().isEmpty() ||
+                et_name.getText().toString().isEmpty() ||
+                et_species.getText().toString().isEmpty() ||
+                et_height.getText().toString().isEmpty() ||
+                et_weight.getText().toString().isEmpty() ||
+                et_hp.getText().toString().isEmpty() ||
+                et_attack.getText().toString().isEmpty() ||
+                et_defence.getText().toString().isEmpty()) {
             allValid = false;
             Toast.makeText(getApplicationContext(), "Please fill all fields.", Toast.LENGTH_SHORT).show();
         }
 
-        int nNumberValue = Integer.parseInt(et_nationalNumber.getText().toString().trim());
+        int nNumberValue = Integer.parseInt(et_nationalNumber.getText().toString());
         if(nNumberValue < 0 || nNumberValue > 1010){
             Toast.makeText(getApplicationContext(), "Number must be between 0-1010.", Toast.LENGTH_SHORT).show();
             nationalNumber.setTextColor(Color.parseColor("Red"));
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //need to figure out a way to limit to just characters and dots and spaces
-        String nameInput = et_name.getText().toString().trim();
+        String nameInput = et_name.getText().toString();
         if (nameInput.length() < 3 || nameInput.length() > 12 || !nameInput.matches("[a-zA-Z]+")) {
             Toast.makeText(getApplicationContext(), "Name length must be 3-12 characters.", Toast.LENGTH_SHORT).show();
             name.setTextColor(Color.parseColor("Red"));
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //need to figure out a way to limit to just characters and dots and spaces
-        String speciesInput = et_species.getText().toString().trim();
+        String speciesInput = et_species.getText().toString();
 
 
         boolean isMale = male.isChecked();
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             allValid = false;
         }
 
-        int hpValue = Integer.parseInt(et_hp.getText().toString().trim());
+        int hpValue = Integer.parseInt(et_hp.getText().toString());
         if (hpValue < 1 || hpValue > 362) {
             Toast.makeText(getApplicationContext(), "HP must be 1 to 362.", Toast.LENGTH_SHORT).show();
             hp.setTextColor(Color.parseColor("Red"));
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
             allValid = false;
         }
 
-        int attackValue = Integer.parseInt(et_attack.getText().toString().trim());
+        int attackValue = Integer.parseInt(et_attack.getText().toString());
         if (attackValue < 5 || attackValue > 526) {
             Toast.makeText(getApplicationContext(), "Attack must be 5 to 562.", Toast.LENGTH_SHORT).show();
             attack.setTextColor(Color.parseColor("Red"));
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        int defenceValue = Integer.parseInt(et_defence.getText().toString().trim());
+        int defenceValue = Integer.parseInt(et_defence.getText().toString());
         if (defenceValue < 5 || defenceValue > 614) {
             Toast.makeText(getApplicationContext(), "Defence must be 5 to 614.", Toast.LENGTH_SHORT).show();
             defence.setTextColor(Color.parseColor("Red"));
@@ -194,4 +194,18 @@ public class MainActivity extends AppCompatActivity {
 
         return allValid;
     }
+
+    private void defaultColors(){
+        nationalNumber.setTextColor(Color.parseColor("Black"));
+        name.setTextColor(Color.parseColor("Black"));
+        species.setTextColor(Color.parseColor("Black"));
+        gender.setTextColor(Color.parseColor("Black"));
+        height.setTextColor(Color.parseColor("Black"));
+        weight.setTextColor(Color.parseColor("Black"));
+
+        hp.setTextColor(Color.parseColor("Black"));
+        attack.setTextColor(Color.parseColor("Black"));
+        defence.setTextColor(Color.parseColor("Black"));
+    }
+
 }

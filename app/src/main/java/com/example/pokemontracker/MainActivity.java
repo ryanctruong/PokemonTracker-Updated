@@ -34,11 +34,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (validateInputs()) {
                 Toast.makeText(getApplicationContext(), "Information stored in the database", Toast.LENGTH_LONG).show();
-                labelHeight = Double.parseDouble(et_height.getText().toString());
-                labelWeight = Double.parseDouble(et_weight.getText().toString());
-
-                et_height.setText(String.format("%.2f m",labelHeight));
-                et_weight.setText(String.format("%.2f kg",labelWeight));
+                defaultColors();
             }
         }
     };

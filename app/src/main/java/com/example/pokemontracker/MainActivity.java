@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
         int nNumberValue = Integer.parseInt(et_nationalNumber.getText().toString());
         if(nNumberValue < 0 || nNumberValue > 1010){
-            Toast.makeText(getApplicationContext(), "Number must be between 0-1010.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "National Number must be between 0-1010.", Toast.LENGTH_SHORT).show();
             nationalNumber.setTextColor(Color.parseColor("Red"));
             allValid = false;
         }

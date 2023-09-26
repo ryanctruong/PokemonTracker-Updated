@@ -24,4 +24,12 @@
     <string name="base_stats">Base Stats</string>
     <string name="reset">Reset</string>
     <string name="female">Female</string>
+    <string name="values_between_5_and_614">Values between 5 and 614</string>
+    <string name="values_between_1_and_362">Values Between 1 and 362</string>
+    <string name="values_between_5_and_526">Values Between 5 and 526</string>
+    <string name="values_between_0_1_and_820_0">Values Between 0.1 and 820.0</string>
+    <string name="values_between_0_3_and_19_99">Values Between 0.3 and 19.99</string>
+    <string name="characters_and_spaces">Characters and Spaces</string>
+    <string name="_3_12_characters_spaces">3-12 Characters, Spaces, (.)</string>
+    <string name="values_between_0_1010">Values Between 0-1010</string>
 </resources>

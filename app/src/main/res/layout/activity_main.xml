@@ -49,7 +49,7 @@
         android:autofillHints="0"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/_0"
+        android:hint="@string/values_between_5_and_614"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +85,7 @@
         android:autofillHints="0"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/_0"
+        android:hint="@string/values_between_1_and_362"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -99,7 +99,7 @@
         android:autofillHints="0"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/_0"
+        android:hint="@string/values_between_5_and_526"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -134,10 +134,11 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
-        android:text="@string/_800_0_kg"
+        android:hint="@string/values_between_0_1_and_820_0"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <EditText
         android:id="@+id/et_pokeHeight"
@@ -147,7 +148,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
-        android:text="@string/_2_2_m"
+        android:hint="@string/values_between_0_3_and_19_99"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -182,7 +183,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/wild_horse_pokemon"
+        android:hint="@string/characters_and_spaces"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -195,7 +196,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/glastrier"
+        android:hint="@string/_3_12_characters_spaces"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -263,7 +264,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/_896"
+        android:hint="@string/values_between_0_1010"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

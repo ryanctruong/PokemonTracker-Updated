@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         //need to figure out a way to limit to just characters and dots and spaces
         String nameInput = et_name.getText().toString();
-        if (nameInput.length() < 3 || nameInput.length() > 12 || !nameInput.matches("[a-zA-Z]+")) {
+        if (nameInput.length() < 3 || nameInput.length() > 12) {
             Toast.makeText(getApplicationContext(), "Name length must be 3-12 characters.", Toast.LENGTH_SHORT).show();
             name.setTextColor(Color.parseColor("Red"));
             allValid = false;
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isMale = male.isChecked();
         boolean isFemale = female.isChecked();
         boolean isUnk  = unk.isChecked();
-        if (!isMale && !isFemale && isUnk) {
+        if (!isMale && !isFemale && !isUnk) {
             Toast.makeText(getApplicationContext(), "Please select a gender.", Toast.LENGTH_SHORT).show();
             gender.setTextColor(Color.parseColor("Red"));
             allValid = false;

@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnClickListener saveListener = new View.OnClickListener() {
         double labelHeight, labelWeight;
-        @SuppressLint({"SetTextI18n", "DefaultLocale"})
         @Override
         public void onClick(View view) {
             if (validateInputs()) {
@@ -239,4 +238,5 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //constraints need to be completed tmw
 }

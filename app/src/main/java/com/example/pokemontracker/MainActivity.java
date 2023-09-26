@@ -146,16 +146,19 @@ public class MainActivity extends AppCompatActivity {
             allValid = false;
         }
 
-        //need to figure out a way to limit to just characters and dots and spaces
         String nameInput = et_name.getText().toString();
-        if (nameInput.length() < 3 || nameInput.length() > 12) {
+        if (!validName(nameInput)) {
             Toast.makeText(getApplicationContext(), "Name length must be 3-12 characters.", Toast.LENGTH_SHORT).show();
             name.setTextColor(Color.parseColor("Red"));
             allValid = false;
         }
 
-        //need to figure out a way to limit to just characters and dots and spaces
         String speciesInput = et_species.getText().toString();
+        if(!validSpecies(speciesInput)){
+            Toast.makeText(getApplicationContext(), "Only Letters and Characters.", Toast.LENGTH_SHORT).show();
+            species.setTextColor(Color.parseColor("Red"));
+            allValid = false;
+        }
 
 
         boolean isMale = male.isChecked();
@@ -206,6 +209,34 @@ public class MainActivity extends AppCompatActivity {
         hp.setTextColor(Color.parseColor("Black"));
         attack.setTextColor(Color.parseColor("Black"));
         defence.setTextColor(Color.parseColor("Black"));
+    }
+
+    public boolean validName(String s){
+        if(s.length() > 12 || s.length() < 3){
+            return false;
+        }
+
+        for(int i = 0; i < s.length(); i++){
+            char a = Character.toLowerCase(s.charAt(i));
+            if(a > 'z' || a < 'a'){
+                if(a != '.' && a != ' '){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    public boolean validSpecies(String s){
+        for(int i = 0; i < s.length(); i++){
+            char a = Character.toLowerCase(s.charAt(i));
+            if(a > 'z' || a < 'a'){
+                if(a != ' '){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }

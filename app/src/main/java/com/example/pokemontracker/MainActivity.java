@@ -12,10 +12,16 @@ public class MainActivity extends AppCompatActivity {
 
     EditText et_nationalNumber, et_name, et_species, et_height, et_weight,
             et_hp, et_attack, et_defence;
+    RadioButton female, male, unk;
+
+    Button reset, save;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); appName = requireViewById(R.id.AppName);
+        setContentView(R.layout.activity_main);
+
+        appName = requireViewById(R.id.AppName);
         regisCatch = requireViewById(R.id.newCatch);
 
         // editText headers
@@ -40,7 +46,14 @@ public class MainActivity extends AppCompatActivity {
         et_attack = requireViewById(R.id.et_pokeAttack);
         et_defence = requireViewById(R.id.et_pokeDefence);
 
+        //radio Buttons
+        female = requireViewById(R.id.radioFem);
+        male = requireViewById(R.id.radioMale);
+        unk = requireViewById(R.id.radioUnk);
 
-        //Radio and Click-able Buttons
+
+        //Buttons
+        reset = requireViewById(R.id.resetButton);
+        save = requireViewById(R.id.saveButton);
     }
 }
